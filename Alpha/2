@@ -1,0 +1,20 @@
+Turn20_ = ts_mean(volume/sharesout, 20);
+Turn20 = group_neutralize(Turn20_, bucket(rank(cap), range="0.1,1,0.1"));
+
+STR_ = ts_std_dev(volume/sharesout, 20);
+STR = group_neutralize(STR_, bucket(rank(cap), range="0.1,1,0.1"));
+
+score2 = rank(- nan_mask(Turn20, if_else(rank(STR) < 0.5, 1, -1))) * 0.5;
+score3 = rank(nan_mask(Turn20, if_else(rank(STR) >= 0.5, 1, -1))) * 0.5;
+
+turnover = volume / sharesout ;
+avg_turn = ts_mean (turnover ,30);
+nor_turn = ts_delay ( turnover - avg_turn ,3);
+change =( close - open )/ open ;
+avg_change = ts_mean ( change ,30);
+nor_change = change - avg_change ;
+score4 = ts_corr ( nor_turn , abs ( nor_change ),10);
+
+signali = add(rank(STR), score2, score3, filter = true);
+signal = left_tail(rank(signali), maximum=0.98);
+-group_rank(signal, bucket(rank(cap), range="0.1,1,0.1"))
