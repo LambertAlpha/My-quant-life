@@ -1,3 +1,5 @@
+# setting USA Top200/500 Delay1
+
 ratio1 = implied_volatility_call_120/parkinson_volatility_120;
 ratio2 = parkinson_volatility_120/implied_volatility_call_120;
 0.9 * ratio1 + 0.1 * ratio2
