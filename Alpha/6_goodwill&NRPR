@@ -1,0 +1,11 @@
+#setting USA TOP3000 dacay8 delay1 subindustry truncation0.08
+
+m_minus=ts_mean(close,30)-ts_mean(close,10);
+delta=(ts_max(m_minus,10)-m_minus)/(ts_max(m_minus,10)-ts_min(m_minus,10));
+PCY=0.2*delta+0.8*ts_delay(delta,1);
+signal=-close/vwap;
+b=trade_when(PCY>ts_delay(PCY,1),signal,-1);
+
+a=-rank(ts_backfill(zscore(goodwill/sales),65)*(rank(fn_accrued_liab_a)*rank(capex)*rank(dividend/sharesout)+rank(debt_st)));
+
+0.05*a+b
