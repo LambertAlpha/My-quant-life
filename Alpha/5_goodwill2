@@ -1,0 +1,3 @@
+#setting USA TOP3000 dacay0 delay1 sector truncation0.08
+
+-ts_backfill(zscore(goodwill/sales),65)*(rank(fn_accrued_liab_a))
