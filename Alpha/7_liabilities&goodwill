@@ -1,0 +1,7 @@
+#original setting
+
+b=liabilities/cap;
+
+a=-rank(ts_backfill(zscore(goodwill/sales),65)*(rank(fn_accrued_liab_a)*rank(capex)*rank(dividend/sharesout)+rank(debt_st)));
+
+a+0.1*b

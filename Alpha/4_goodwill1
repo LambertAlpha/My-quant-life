@@ -1,0 +1,3 @@
+#setting USA TOP3000 dacay10 delay1 industry truncation0.1
+
+-rank(ts_backfill(zscore(goodwill/sales),65)*(rank(fn_accrued_liab_a)+rank(capex)+rank(dividend/sharesout)+rank(debt_st)))
