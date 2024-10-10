@@ -1,4 +1,4 @@
-#setting USA TOP3000 dacay8 delay1 subindustry truncation0.08
+#setting USA TOP3000 dacay8 delay1 industry truncation0.08
 
 m_minus=ts_mean(close,30)-ts_mean(close,10);
 delta=(ts_max(m_minus,10)-m_minus)/(ts_max(m_minus,10)-ts_min(m_minus,10));
